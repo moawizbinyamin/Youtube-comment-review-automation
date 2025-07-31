@@ -20,13 +20,13 @@ app = Flask(__name__)
 
 # Configure Google Generative AI
 # GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
-GOOGLE_API_KEY = "AIzaSyChY-BiEGQAYptgFBzkNqZ6-rTyicKhgao"
+GOOGLE_API_KEY = ""
 if GOOGLE_API_KEY:
     genai.configure(api_key=GOOGLE_API_KEY)
 
 YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY')
 
-YOUTUBE_API_KEY ="AIzaSyDd9-WH9dB1_O5GPAqzJsUrDArVUmOVK0k"
+YOUTUBE_API_KEY =""
 if not YOUTUBE_API_KEY:
     raise ValueError("No YOUTUBE_API_KEY set for application")
 
