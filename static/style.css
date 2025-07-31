@@ -1,0 +1,208 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.error {
+    color: #e74c3c;
+    background: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.chart-container img {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.sentiment-stats {
+    width: 45%;
+}
+
+.stat {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.positive {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+}
+
+.neutral {
+    background-color: rgba(158, 158, 158, 0.1);
+    border-left: 4px solid #9E9E9E;
+}
+
+.negative {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #F44336;
+}
+
+.stat-value {
+    font-weight: bold;
+}
+
+.wordcloud {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.topics-list, .suggestions-list {
+    padding-left: 20px;
+}
+
+.topics-list li, .suggestions-list li {
+    margin-bottom: 10px;
+}
+
+.keywords-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.keyword {
+    background-color: #e0f7fa;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #0097a7;
+}
+
+.feedback-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        flex-direction: column;
+    }
+    
+    .chart-container img, .sentiment-stats {
+        width: 100%;
+    }
+}
+/* Add to the end of style.css */
+
+/* Fix for suggestion list */
+.suggestions-list li {
+    white-space: pre-wrap; /* Preserve line breaks */
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
+
+/* Better formatting for feedback */
+.feedback-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    white-space: pre-wrap; /* Preserve line breaks */
+    line-height: 1.6;
+}
+
+/* Style headings in feedback */
+.feedback-box h3 {
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.feedback-box ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.feedback-box li {
+    margin-bottom: 8px;
+}

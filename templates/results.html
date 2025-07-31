@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Results for: {{ video_url }}</h1>
+        <a href="/" class="back-btn">← Analyze Another Video</a>
+        
+        <div class="section">
+            <h2>Sentiment Analysis</h2>
+            <div class="chart-container">
+                <img src="{{ url_for('static', filename=sentiment_img) }}" alt="Sentiment Distribution">
+                <div class="sentiment-stats">
+                    {% set total = sentiment_stats.positive + sentiment_stats.neutral + sentiment_stats.negative %}
+                    <div class="stat positive">
+                        <span class="stat-label">Positive</span>
+                        <span class="stat-value">
+                            {{ sentiment_stats.positive }} ({{ (sentiment_stats.positive/total*100)|round(1) }}%)
+                        </span>
+                    </div>
+                    <div class="stat neutral">
+                        <span class="stat-label">Neutral</span>
+                        <span class="stat-value">
+                            {{ sentiment_stats.neutral }} ({{ (sentiment_stats.neutral/total*100)|round(1) }}%)
+                        </span>
+                    </div>
+                    <div class="stat negative">
+                        <span class="stat-label">Negative</span>
+                        <span class="stat-value">
+                            {{ sentiment_stats.negative }} ({{ (sentiment_stats.negative/total*100)|round(1) }}%)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Word Cloud</h2>
+            <img src="{{ url_for('static', filename=wordcloud_img) }}" alt="Word Cloud" class="wordcloud">
+        </div>
+        
+        <div class="section">
+            <h2>Topics in Comments</h2>
+            <ul class="topics-list">
+                {% for topic in topics %}
+                    <li>{{ topic }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Top Keywords</h2>
+            {% if keywords %}
+                <div class="keywords-container">
+                    {% for keyword in keywords %}
+                        <span class="keyword">{{ keyword }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No significant keywords found in comments</p>
+            {% endif %}
+        </div>
+        
+        <div class="section">
+            <h2>User Suggestions</h2>
+            <ul class="suggestions-list">
+                {% for suggestion in suggestions %}
+                    <li>{{ suggestion|safe }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        {% if llm_feedback %}
+        <div class="section">
+            <h2>Content Feedback</h2>
+            <div class="feedback-box">
+                {{ llm_feedback|replace('\n', '<br>')|safe }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
